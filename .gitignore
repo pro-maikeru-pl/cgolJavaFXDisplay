@@ -4,3 +4,22 @@
 *.jar
 *.war
 *.ear
+
+# Ant specific #
+dist/
+build/
+ 
+# Netbeans specific #
+core
+nbproject/*
+!nbproject/project.properties
+!nbproject/project.xml
+ 
+# swap/backup files #
+*.so
+*.log
+*.out
+*~
+*.swp
+*.DS_Store
+*.lock
