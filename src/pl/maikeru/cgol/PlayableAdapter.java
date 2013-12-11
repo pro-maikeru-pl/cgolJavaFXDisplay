@@ -1,15 +1,17 @@
 package pl.maikeru.cgol;
 
+import pl.maikeru.cgol.coderetreat.WrongGame;
+
 class PlayableAdapter implements Playable {
     
-        private final DummyGameImplementation game;
+        private final WrongGame game;
         
         public static Playable createPlayable() {
-            Playable playable = new PlayableAdapter(new DummyGameImplementation());
+            Playable playable = new PlayableAdapter(new WrongGame());
             return playable;
         }
 
-        private PlayableAdapter(DummyGameImplementation yourGame) {
+        private PlayableAdapter(WrongGame yourGame) {
             this.game = yourGame;
             gameSetUp();
         }
