@@ -1,11 +1,11 @@
-package pl.maikeru.cgol.coderetreat;
+package pl.maikeru.cgol.sample;
 
 /**
  *
  * @author maikeru
  */
 public class WrongGame {
-    private final int size = 50;
+    public final int size = 50;
     Boolean[][] state = new Boolean[size][size];
 
     public WrongGame() {

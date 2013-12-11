@@ -1,6 +1,6 @@
 package pl.maikeru.cgol;
 
-import pl.maikeru.cgol.coderetreat.WrongGame;
+import pl.maikeru.cgol.sample.WrongGame;
 
 class PlayableAdapter implements Playable {
     
