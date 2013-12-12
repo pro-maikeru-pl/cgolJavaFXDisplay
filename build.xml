@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- You may freely edit this file. See commented blocks below for --><!-- some examples of how to customize the build. --><!-- (If you delete it and reopen the project it will be recreated.) --><!-- By default, only the Clean and Build commands use this build script. --><project name="pl.maikeru.cgol" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
     <description>Builds, tests, and runs the project pl.maikeru.cgol.</description>
     <import file="nbproject/build-impl.xml"/>
+    
+    <target xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" depends="init,compile-test,-pre-test-run" if="have.tests" name="-do-test-run">
+        <j2seproject3:test testincludes="**/*Should.java"/>
+        <j2seproject3:test testincludes="**/*Test.java"/>
+    </target>
+    
     <!--
 
     There exist several targets which are by default empty and which can be 
