@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package pl.maikeru.cgol.sample;
 
 /**
  *
  * @author maikeru
  */
-class SampleGame {
+public class SampleGame {
     private final Cell[][] cells;
     private final Boolean[][] representation;
 
@@ -25,7 +19,7 @@ class SampleGame {
         }
     }
 
-    Boolean[][] asArray() {
+    public Boolean[][] toArray() {
         return representation;
     }
 }

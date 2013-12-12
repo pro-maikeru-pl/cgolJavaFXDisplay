@@ -17,7 +17,7 @@ public class SampleGameWhenCreatingShould {
     public void createOnePlaceWhenOnePlaceInstructionPassedInConstructor()
     {
         game = new SampleGame(1, cf);
-        Object[][] gameArray = game.asArray();
+        Object[][] gameArray = game.toArray();
 
         assertEquals(1, gameArray.length);
         assertEquals(1, gameArray[0].length);
@@ -26,7 +26,7 @@ public class SampleGameWhenCreatingShould {
     @Test
     public void createSquaredNumberOfPlacesPassedInConstructor() {
         game = new SampleGame(2, cf);
-        Object[][] gameArray = game.asArray();
+        Object[][] gameArray = game.toArray();
 
         assertEquals(2, gameArray.length);
         assertEquals(2, gameArray[0].length);
@@ -37,7 +37,7 @@ public class SampleGameWhenCreatingShould {
     public void haveFieldsSetToFalseByDefault() {
         game = new SampleGame(1, cf);
 
-        assertEquals(false, game.asArray()[0][0]);
+        assertEquals(false, game.toArray()[0][0]);
     }
 
     @Test

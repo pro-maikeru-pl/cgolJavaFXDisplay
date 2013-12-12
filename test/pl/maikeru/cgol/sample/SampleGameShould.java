@@ -21,7 +21,7 @@ public class SampleGameShould {
         game = new SampleGame(1, cf);
         Boolean[][] expectedRepresentation = {{false}};
 
-        assertArrayEquals(expectedRepresentation, game.asArray());
+        assertArrayEquals(expectedRepresentation, game.toArray());
     }
 
 
@@ -37,7 +37,7 @@ public class SampleGameShould {
             {true, true}
         };
 
-        assertArrayEquals(expectedRepresentation, game.asArray());
+        assertArrayEquals(expectedRepresentation, game.toArray());
 
     }
 
