@@ -11,9 +11,7 @@ build/
  
 # Netbeans specific #
 core
-nbproject/*
-!nbproject/project.properties
-!nbproject/project.xml
+nbproject/private/*
  
 # swap/backup files #
 *.so
