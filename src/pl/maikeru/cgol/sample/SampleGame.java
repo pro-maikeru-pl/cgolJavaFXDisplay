@@ -11,18 +11,21 @@ package pl.maikeru.cgol.sample;
  * @author maikeru
  */
 class SampleGame {
-    private final int size;
-    public SampleGame(int size) {
-        this.size = size;
+    private final Cell[][] cells;
+    private final Boolean[][] representation;
+
+    public SampleGame(int size, CellFactory cf) {
+        cells = new Cell[size][size];
+        representation = new Boolean[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                cells[i][j] = cf.createDead();
+                representation[i][j] = cells[i][j].isAlive();
+            }
+        }
     }
 
     Boolean[][] asArray() {
-        Boolean[][] result = new Boolean[size][size];
-        for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < result.length; j++) {
-                result[i][j] = false;
-            }
-        }
-        return result;
+        return representation;
     }
 }

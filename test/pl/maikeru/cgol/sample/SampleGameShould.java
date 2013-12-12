@@ -1,5 +1,7 @@
 package pl.maikeru.cgol.sample;
 
+import static org.mockito.Mockito.*;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,41 +11,40 @@ import static org.junit.Assert.*;
 
 public class SampleGameShould {
     private SampleGame game;
+    private CellFactory cf;
+    
+    
     @Test
-    public void hasSquareSizeSetInConstructor()
+    public void returnBooleanRepresentationOfCurrentState()
     {
-        SampleGame game = new SampleGame(2);
-        Object[][] gameArray = game.asArray();
-        assertEquals(2, gameArray.length);
-        assertEquals(2, gameArray[0].length);
-        assertEquals(2, gameArray[1].length);
+        when(cf.createDead()).thenReturn(new Cell(false));
+        game = new SampleGame(1, cf);
+        Boolean[][] expectedRepresentation = {{false}};
+
+        assertArrayEquals(expectedRepresentation, game.asArray());
     }
 
-    @Test
-    public void hasSquareSizeSetInConstructor2()
-    {
-        SampleGame game = new SampleGame(1);
-        Object[][] gameArray = game.asArray();
-        assertEquals(1, gameArray.length);
-        assertEquals(1, gameArray[0].length);
-    }
 
     @Test
-    public void returnArrayWithBooleanValuesRepresentingCells()
+    public void returnBooleanRepresentationOfCurrentState2()
     {
-        Boolean[][] gameArray = game.asArray();
-    }
+        when(cf.createDead())
+                .thenReturn(new Cell(true)).thenReturn(new Cell(false))
+                .thenReturn(new Cell(true)).thenReturn(new Cell(true));
+        game = new SampleGame(2, cf);
+        Boolean[][] expectedRepresentation = {
+            {true, false},
+            {true, true}
+        };
 
-    @Test
-    public void haveFieldsSetToFalseByDefault()
-    {
-        assertEquals(false, game.asArray()[0][0]);
+        assertArrayEquals(expectedRepresentation, game.asArray());
+
     }
 
     @Before
     public void setUp()
     {
-        game = new SampleGame(1);
+        cf = mock(CellFactory.class);
+        
     }
-
 }
