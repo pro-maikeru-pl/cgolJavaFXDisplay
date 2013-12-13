@@ -20,12 +20,21 @@ import static org.junit.Assert.*;
 public class CellFactoryShould {
     
     @Test
-    public void returnNewDeadCell() {
+    public void returnDeadCell() {
         CellFactory cf = new CellFactory();
 
         Cell c = cf.createDead();
 
         assertEquals(false, c.isAlive());
+    }
+
+    @Test
+    public void returnLivingCell() {
+        CellFactory cf = new CellFactory();
+
+        Cell c = cf.createAlive();
+
+        assertEquals(true, c.isAlive());
     }
 
 }

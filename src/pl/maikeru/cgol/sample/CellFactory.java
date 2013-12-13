@@ -16,4 +16,8 @@ public class CellFactory {
         return new Cell(false);
     }
 
+    Cell createAlive() {
+        return new Cell(true);
+    }
+
 }
