@@ -41,6 +41,31 @@ public class SampleGameShould {
 
     }
 
+    @Test
+    public void killCellWhenForcedTo() {
+        when(cf.createDead()).thenReturn(new Cell(false));
+        when(cf.createAlive()).thenReturn(new Cell(true));
+        game = new SampleGame(1, cf);
+
+        game.modifyCell(0, 0, true);
+        
+        Boolean[][] expectedRepresentation = {{true}};
+        assertArrayEquals(expectedRepresentation, game.toArray());
+    }
+
+    @Test
+    public void makeCellAliveWhenForcedTo() {
+        when(cf.createDead()).thenReturn(new Cell(false));
+        when(cf.createAlive()).thenReturn(new Cell(true));
+        game = new SampleGame(1, cf);
+        game.modifyCell(0, 0, true);
+
+        game.modifyCell(0, 0, false);
+
+        Boolean[][] expectedRepresentation = {{false}};
+        assertArrayEquals(expectedRepresentation, game.toArray());
+    }
+
     @Before
     public void setUp()
     {
